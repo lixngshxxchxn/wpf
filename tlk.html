@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <title>잔소리</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <style>
+
+        html{
+            overflow: hidden;
+        }
+
+        .container{
+            height: 1000px;
+        }
+
+        #tlk {
+            margin: 0 auto;
+            padding-top: 100px;
+            width: 800px;
+            overflow: hidden;
+        }
+
+        #tlk img {
+            width: 500px;
+            margin: 50px 30px 0 30px;
+            display: none;
+        }
+
+        .tlk_odd {
+            float: left;
+        }
+
+        .tlk_even {
+            float: right;
+        }
+
+        #tlk-shoot {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            bottom: 70px; 
+            width: 100%;
+        }
+
+        #tlk-shoot img{
+            width: 300px;
+        }
+
+        .shoot_left, .shoot_right {
+            cursor: pointer;
+        }
+
+        #topButton {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        padding: 30px;
+        border: #83c9f4 7px solid;
+        color: #83c9f4;
+        font-weight: bold;
+        border-radius: 30%;
+        cursor: pointer;
+    }
+
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="menu-left">
+        <a href="index.html"><img src="img/icon_home.png" class="home"></a>
+    </div>
+    
+    <div class="menu-right">
+        <a href="cvs.html"><img src="img/icon_cvs.png"></a>
+        <a href="drm.html"><img src="img/icon_drm.png"></a>
+        <a href="mmr.html"><img src="img/icon_mmr.png"></a>
+        <a href="tlk.html"><img src="img/icon_tlk.png"></a>
+        <a href="tst.html"><img src="img/icon_tst.png"></a>
+    </div>
+</header>
+
+<div onclick="scrollToTop()" id="topButton" title="Go to top">Top</div>
+
+<div class="container">
+
+    <div id="tlk">
+        <img src="img/t_1.png" class="tlk1 tlk_odd">
+        <img src="img/t_2.png" class="tlk2 tlk_even">
+        <img src="img/t_3.png" class="tlk3 tlk_odd">
+        <img src="img/t_4.png" class="tlk4 tlk_even">
+        <img src="img/t_5.png" class="tlk5 tlk_odd">
+        <img src="img/t_6.png" class="tlk6 tlk_even">
+    </div>
+
+    <div id="tlk-shoot">
+        <img src="img/shoot1.png" class="shoot_left">
+        <img src="img/shoot2.png" class="shoot_right">
+    </div>
+
+</div>
+
+
+<script>
+    let currentOddIndex = 0;
+    let currentEvenIndex = 0;
+
+    document.querySelector('.shoot_left').addEventListener('click', function() {
+        const oddImages = document.querySelectorAll('.tlk_odd');
+        if (currentOddIndex < oddImages.length) {
+            const img = oddImages[currentOddIndex];
+            img.style.display = 'block';
+            img.style.transition = 'opacity 1s, transform 1s';
+            img.style.transform = 'translateY(10px)';
+            img.style.opacity = '1';
+            currentOddIndex++;
+            img.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    document.querySelector('.shoot_right').addEventListener('click', function() {
+        const evenImages = document.querySelectorAll('.tlk_even');
+        if (currentEvenIndex < evenImages.length) {
+            const img = evenImages[currentEvenIndex];
+            img.style.display = 'block';
+            img.style.transition = 'opacity 1s, transform 1s';
+            img.style.transform = 'translateY(10px)';
+            img.style.opacity = '1';
+            currentEvenIndex++;
+            img.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    var mybutton = document.getElementById("topButton");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+
+
+    function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+
+</script>
+
+</body>
+</html>

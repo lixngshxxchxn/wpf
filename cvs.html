@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <title>대화</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+
+    
+<style>
+
+
+    #cvs{
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        margin: 100px 0;
+    }
+
+    h2{
+        margin: 50px 0;
+    }
+
+    #cvs img{
+        width: 1000px;
+        margin: 30px;
+    }
+
+    #topButton {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        padding: 30px;
+        border: #83c9f4 7px solid;
+        color: #83c9f4;
+        font-weight: bold;
+        border-radius: 30%;
+        cursor: pointer;
+    }
+
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-left">
+            <a href="index.html"><img src="img/icon_home.png" class="home"></a>
+        </div>
+        
+        <div class="menu-right">
+            <a href="cvs.html"><img src="img/icon_cvs.png"></a>
+            <a href="drm.html"><img src="img/icon_drm.png"></a>
+            <a href="mmr.html"><img src="img/icon_mmr.png"></a>
+            <a href="tlk.html"><img src="img/icon_tlk.png"></a>
+            <a href="tst.html"><img src="img/icon_tst.png"></a>
+        </div>
+    </header>
+
+    <div onclick="scrollToTop()" id="topButton" title="Go to top">Top</div>
+
+    <div id="cvs">
+        <h2>사실 확인 불가의 식사 중 대화 주제</h2>
+        <img src="img/cvs1.png" class="cvs1">
+        <img src="img/cvs2.png" class="cvs2">
+        <img src="img/cvs3.png" class="cvs3">
+        <img src="img/cvs4.png" class="cvs4">
+    </div>
+
+    <footer>
+        <p class="foot">2024 &copy; liang all rights reserved.</p>
+    </footer>
+
+
+<script>
+
+
+var mybutton = document.getElementById("topButton");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+</body>
+</html>

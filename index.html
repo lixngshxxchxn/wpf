@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <title>아빠와 나</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+
+<style>
+
+    #main{
+        width: 100%;
+        height: 100vh;
+        left: 50%;
+        top: 50%;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo{
+        width: auto;
+        height: 50px;
+        margin: 12px;
+    }
+
+    .dd{
+        width: 700px;
+        transition: transform 0.3s ease;   
+    }
+
+    .dt{
+        width: 700px;
+        transition: transform 0.3s ease;
+    }
+
+    .dt:hover, .dd:hover{
+        transform: rotate(5deg);
+    }
+
+
+    @media screen and (max-width: 768px) {
+
+        .dd, .dt {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-left">
+            <img src="img/i_title.png" class="logo">
+        </div>
+        
+        <div class="menu-right">
+            <a href="cvs.html"><img src="img/icon_cvs.png"></a>
+            <a href="drm.html"><img src="img/icon_drm.png"></a>
+            <a href="mmr.html"><img src="img/icon_mmr.png"></a>
+            <a href="tlk.html"><img src="img/icon_tlk.png"></a>
+            <a href="tst.html"><img src="img/icon_tst.png"></a>
+        </div>
+    </header>
+
+    <div id="main">   
+        <img src="img/i_m1.png" class="dd">
+        
+        <img src="img/i_m2.png" class="dt">
+    </div>
+
+    <footer>
+        <p class="foot">2024 &copy; liang all rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>

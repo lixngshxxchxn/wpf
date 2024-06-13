@@ -104,22 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const videoId = this.getAttribute('data-video');
             const videoToShow = document.getElementById(videoId);
 
-            // 이미지를 클릭해서 비디오를 보여줄 때
             if (!videoToShow.classList.contains('show')) {
-                // 모든 비디오 숨기기 및 재생 중지
                 videos.forEach(video => {
                     video.classList.remove('show');
                     video.pause();
                     video.currentTime = 0;
                 });
 
-                // 클릭된 이미지의 비디오 보여주기 및 재생
                 videoToShow.classList.add('show');
                 videoToShow.play();
-                videoToShow.loop = true; // 반복 재생 설정
-                videoToShow.volume = 0.2; // 볼륨 설정 (0.2는 낮은 볼륨)
+                videoToShow.loop = true;
+                videoToShow.volume = 0.2;
             } else {
-                // 이미지를 다시 클릭해서 비디오를 숨길 때
+                
                 videoToShow.classList.remove('show');
                 videoToShow.pause();
                 videoToShow.currentTime = 0;
@@ -127,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 화면 어디든 클릭하면 비디오 숨기기
+
     document.addEventListener('click', function(event) {
         if (!event.target.closest('#vid-container') && !event.target.closest('.tag img')) {
-            // 비디오 영역이나 이미지를 클릭하지 않았을 때
+
             videos.forEach(video => {
                 video.classList.remove('show');
                 video.pause();

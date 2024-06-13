@@ -36,17 +36,19 @@
             width: 100%;
             height: 100%;
         }
-
+        
         #vid-container video {
             display: none;
             position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-
+        
         #vid-container video.show {
             display: block;
-            max-width: 80%;
-            max-height: 80%;
         }
+
 
 
 
@@ -105,46 +107,42 @@
         document.addEventListener('DOMContentLoaded', function() {
         const videos = document.querySelectorAll('#vid-container video');
         const images = document.querySelectorAll('.tag img');
-
-
-        videos.forEach(video => {
-            video.style.display = 'none';
-        });
-
+    
         images.forEach(image => {
-            image.addEventListener('click', function() {
+            image.addEventListener('click', function(event) {
+                event.stopPropagation(); 
                 const videoId = this.getAttribute('data-video');
                 const videoToShow = document.getElementById(videoId);
-
-                videos.forEach(video => {
-                    video.style.display = 'none';
-                    video.pause();
-                    video.currentTime = 0;
-                });
-
     
-                videoToShow.style.display = 'block';
-                videoToShow.play();
-                videoToShow.loop = true;
-                videoToShow.volume = 0.2; 
+                if (videoToShow.classList.contains('show')) {
+                   
+                    videoToShow.classList.remove('show');
+                    videoToShow.pause();
+                    videoToShow.currentTime = 0;
+                } else {
+                   
+                    videos.forEach(video => {
+                        video.classList.remove('show');
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+    
+                   
+                    videoToShow.classList.add('show');
+                    videoToShow.play();
+                    videoToShow.loop = true;
+                    videoToShow.volume = 0.5; 
+                }
             });
         });
-
-
+    
+    
         document.addEventListener('click', function(event) {
-
-            if (event.target.tagName.toLowerCase() === 'video' || event.target.tagName.toLowerCase() === 'img') {
-                return;
-            }
-
-
-            videos.forEach(video => {
-                video.style.display = 'none';
-                video.pause();
-                video.currentTime = 0;
-            });
-        });
-    });
+            if (!event.target.closest('#vid-container') && !event.target.closest('.tag img')) {
+               
+                videos.forEach(video => {
+                    video.classList.remove('show');
+         
 
     </script>
     
